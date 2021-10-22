@@ -13,7 +13,7 @@ class MySca extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('吹き出しとfabのサンプル'),
+          title: const Text('fabの上に吹き出し'),
         ),
         floatingActionButton: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
