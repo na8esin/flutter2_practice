@@ -51,9 +51,9 @@ class BubbleBorder extends ShapeBorder {
   @override
   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     return Path()
-      // xはマイナスが大きくなると左、プラスだと右。
+      // xは少なくなると左、多くなると右
       // yは少なくなると上に移動する
-      ..moveTo(rect.bottomCenter.dx + 28, rect.bottomCenter.dy + 0)
+      ..moveTo(rect.bottomCenter.dx + 28, rect.bottomCenter.dy)
       ..relativeLineTo(45, 16)
       ..relativeLineTo(6, -16)
       ..addRRect(RRect.fromRectAndRadius(rect, const Radius.circular(8)))
