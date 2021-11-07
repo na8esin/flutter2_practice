@@ -22,22 +22,28 @@ class MyApp extends StatelessWidget {
 class MyScreen extends StatelessWidget {
   const MyScreen({Key? key}) : super(key: key);
 
+  static final checks = [true, false];
+
   @override
   Widget build(BuildContext context) {
     return Center(
         child: ListView.builder(
-            itemCount: 3,
+            itemCount: 2,
             itemBuilder: (context, index) {
-              return const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: MyWidget(),
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: MyWidget(
+                  isChecked: checks.elementAt(index),
+                ),
               );
             }));
   }
 }
 
 class MyWidget extends StatelessWidget {
-  const MyWidget({Key? key}) : super(key: key);
+  const MyWidget({Key? key, required this.isChecked}) : super(key: key);
+
+  final bool isChecked;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +52,7 @@ class MyWidget extends StatelessWidget {
       height: 200,
       child: LayoutBuilder(builder: (context, constraints) {
         return CustomPaint(
-            painter: CheckableBox(isChecked: true),
+            painter: CheckableBox(isChecked: isChecked),
             child: const Padding(
               padding: EdgeInsets.only(left: 8.0),
               child: Center(child: Text('hello')),
